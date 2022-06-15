@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'redis',
     'django.core.mail',
 
+
 ]
 
 MIDDLEWARE = [
@@ -90,7 +91,7 @@ WSGI_APPLICATION = 'djangoInnowise.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": os.environ.get("SQL_ENGINE"),
-        "NAME": os.environ.get("SQL_DATABASE"),
+        "NAME": os.environ.get("SQL_DB"),
         "USER": os.environ.get("SQL_USER"),
         "PASSWORD": os.environ.get("SQL_PASSWORD"),
         "HOST": os.environ.get("SQL_HOST"),
@@ -186,7 +187,7 @@ EMAIL_USE_TLS = True
 EMAIL_SSL = False
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'm6104140@gmail.com'
-EMAIL_HOST_PASSWORD = 'dinamo-7700166'
+EMAIL_HOST_PASSWORD = 'din-0000'
 EMAIL_PORT = 587
 
 # REDIS related settings

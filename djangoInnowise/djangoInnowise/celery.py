@@ -14,7 +14,7 @@ app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
     'send-spam-every-1-minute': {
-        'task': 'support.tasks.support_respons',
+        'task': 'support.tasks.support_answer',
         'schedule': crontab(minute='*/20'),
     },
 }

@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .serializers import *
+from .serializers import TicketListSerializer, TicketDetailSerializer
 from .models import Ticket, User
-from .permissions import IsOwnerOrReadOnly
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from .tasks import *
+
 
 
 # Create your views here.
@@ -12,19 +11,12 @@ from .tasks import *
 
 class TicketCreateView(generics.CreateAPIView):
     serializer_class = TicketDetailSerializer
+    permission_classes = (IsAuthenticated, )
 
-
-
-
-class TicketDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = TicketDetailSerializer
-    queryset = Ticket.objects.all()
-    permission_classes = (IsAuthenticated,)
-    #permission_classes = (IsOwnerOrReadOnly,)
 
 
 class TicketListView(generics.ListAPIView):
     serializer_class = TicketListSerializer
     queryset = User.objects.all()
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated, IsAdminUser, )
 

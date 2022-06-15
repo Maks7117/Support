@@ -12,7 +12,12 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
+COPY ./entrypoint.sh /
+
 COPY . /usr/src/djangoInnowise
+
+ENTRYPOINT ["/entrypoint.sh" ]
+
 
 EXPOSE 8000
 

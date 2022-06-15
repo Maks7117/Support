@@ -6,7 +6,6 @@ from django.conf import settings
 from .models import User, Ticket
 
 
-
 @app.task
 def support_answer():
     list_message = []
